@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# compile Pug code to the template JS function
+# TODO: figure out Source Map support
+pug --client < "$1" > "$2" &&
+  echo "module.exports = template;" >> "$2"

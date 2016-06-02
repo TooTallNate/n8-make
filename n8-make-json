@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# JSON files are a special-case, just copy them over as-is:
+#   Node.js can load them by default
+#   Webpack can use "json-loader"
+cat "$1" > "$2"

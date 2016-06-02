@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# compile ES6 code to ES5 compat code for Webpack / Node.js
+echo babel "$1" --out-file "$2" --source-maps "$@"
