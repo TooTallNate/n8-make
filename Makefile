@@ -1,6 +1,7 @@
 .PHONY: clean distclean build
 
-export PATH := $(shell npm bin):$(DIR):$(PATH)
+export PATH := $(PATH):$(shell npm bin):$(shell cd "$(DIR)" && npm bin):$(DIR)
+export NODE_PATH := $(NODE_PATH):$(DIR)/node_modules
 export NODE_ENV ?= development
 
 # source file extensions to process into .js files
@@ -22,7 +23,7 @@ build/%.js build/%.json: %.*
 	@mkdir -p $(dir $@)
 	@$(eval EXT=$(subst .,,$(suffix $<)))
 	@echo "$<": $(shell echo $(EXT) | tr "[a-z]" "[A-Z]") source file
-	n8-make-$(EXT) "$<" "$@"
+	@n8-make-$(EXT) "$<" "$@"
 
 clean:
 	@rm -rfv build
