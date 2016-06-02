@@ -4,7 +4,7 @@ export PATH := $(shell npm bin):$(DIR):$(PATH)
 export NODE_ENV ?= development
 
 # source file extensions to process into .js files
-EXTENSIONS = js jsx pug
+EXTENSIONS ?= js jsx pug
 
 SOURCE_FILES := $(subst ./,,$(foreach ext,$(EXTENSIONS),$(shell find . -name "*.$(ext)" -not -path "./build/*" -not -path "./node_modules/*" -not -path "./webpack.config.js" -not -path "./public/*" -print)))
 JSON_SOURCE_FILES := $(subst ./,,$(shell find . -name "*.json" -not -path "./build/*" -not -path "./node_modules/*" -not -path "./public/*" -print))
@@ -25,7 +25,7 @@ build/%.js build/%.json: %.*
 	n8-make-$(EXT) "$<" "$@"
 
 clean:
-	@rm -rfv build public/build.*
+	@rm -rfv build
 
 distclean:
 	@rm -rfv node_modules
