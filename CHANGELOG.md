@@ -1,3 +1,7 @@
+v1.0.1 2016-06-03
+
+* [[`481203511a`](https://github.com/TooTallNate/n8-make/commit/481203511a)] - **make**: simpler and more portable DIR logic (Nathan Rajlich)
+
 v1.0.0 2016-06-03
 
 * [[`82b2e14899`](https://github.com/TooTallNate/n8-make/commit/82b2e14899)] - **Makefile**: include n8-make's .bin dir in NODE_PATH (Nathan Rajlich)
