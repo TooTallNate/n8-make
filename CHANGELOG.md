@@ -1,3 +1,7 @@
+v1.0.2 2016-06-03
+
+* [[`b5294a841f`](https://github.com/TooTallNate/n8-make/commit/b5294a841f)] - **make**: another attempt at getting dirname of script (Nathan Rajlich)
+
 v1.0.1 2016-06-03
 
 * [[`481203511a`](https://github.com/TooTallNate/n8-make/commit/481203511a)] - **make**: simpler and more portable DIR logic (Nathan Rajlich)
