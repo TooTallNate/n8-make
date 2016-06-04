@@ -1,3 +1,7 @@
+v1.0.3 2016-06-03
+
+* [[`9aa13d119d`](https://github.com/TooTallNate/n8-make/commit/9aa13d119d)] - **n8-make-js**: remove multiline stuffs (Nathan Rajlich)
+
 v1.0.2 2016-06-03
 
 * [[`b5294a841f`](https://github.com/TooTallNate/n8-make/commit/b5294a841f)] - **make**: another attempt at getting dirname of script (Nathan Rajlich)
