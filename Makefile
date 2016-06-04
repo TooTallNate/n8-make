@@ -4,7 +4,8 @@ export PATH := $(PATH):$(shell npm bin):$(shell cd "$(DIR)" && npm bin):$(DIR)
 export NODE_PATH := $(NODE_PATH):$(DIR)/node_modules
 export NODE_ENV ?= development
 
-# source file extensions to process into .js files
+# Source file extensions to process into .js files.
+# .json files are implicitly supported.
 EXTENSIONS ?= js jsx pug
 
 SOURCE_FILES := $(subst ./,,$(foreach ext,$(EXTENSIONS),$(shell find . -name "*.$(ext)" -not -path "./build/*" -not -path "./node_modules/*" -not -path "./webpack.config.js" -not -path "./public/*" -print)))
