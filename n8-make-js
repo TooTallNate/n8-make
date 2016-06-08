@@ -4,5 +4,5 @@ INPUT=$1; shift
 OUTPUT=$1; shift
 
 # compile ES6 code to ES5 compat code for Webpack / Node.js
-echo babel "$INPUT" --out-file "$OUTPUT" --source-maps --presets es2015 --plugins transform-runtime,syntax-async-functions,transform-async-to-generator,transform-dirname-filename "$@"
+#echo babel "$INPUT" --out-file "$OUTPUT" --source-maps --presets es2015 --plugins transform-runtime,syntax-async-functions,transform-async-to-generator,transform-dirname-filename "$@"
 babel "$INPUT" --out-file "$OUTPUT" --source-maps --presets es2015 --plugins transform-runtime,syntax-async-functions,transform-async-to-generator,transform-dirname-filename "$@"
