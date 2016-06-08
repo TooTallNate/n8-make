@@ -1,3 +1,8 @@
+v1.0.5 2016-06-08
+
+* [[`ae10be4daf`](https://github.com/TooTallNate/n8-make/commit/ae10be4daf)] - **n8-make-js**: comment out `echo` call (Nathan Rajlich)
+* [[`533b8e9b73`](https://github.com/TooTallNate/n8-make/commit/533b8e9b73)] - **Makefile**: add check for valid file extension (Nathan Rajlich)
+
 v1.0.4 2016-06-03
 
 * [[`b0c2cd7ba9`](https://github.com/TooTallNate/n8-make/commit/b0c2cd7ba9)] - **package**: add "pug-cli" dep (Nathan Rajlich)
