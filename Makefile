@@ -16,15 +16,23 @@ COMPILED_FILES := $(addprefix build/, $(addsuffix .js,$(basename $(SOURCE_FILES)
 build: $(COMPILED_FILES)
 
 # Source files that need to be compiled into regular .js files.
+#
 # Optionally, a `build/%.js.map` file may be created with
 # Source Map information mapping back to the source file, which may
 # be used by `source-map-loader` (for Webpack)
-# or `source-map-support` (for Node.js)
+# or `source-map-support` (for Node.js).
+#
+# We have to check the file extension here before executing the compiler
+# in case of duplicate basenames with multiple file extensions. i.e.
+# if there's a `main.js` and a `main.css` file, then we want to process
+# the .js rule, but skip the .css rule.
 build/%.js build/%.json: %.*
-	@mkdir -p $(dir $@)
 	@$(eval EXT=$(subst .,,$(suffix $<)))
-	@echo "$<": $(shell echo $(EXT) | tr "[a-z]" "[A-Z]") source file
-	@n8-make-$(EXT) "$<" "$@"
+	@[[ "$(EXTENSIONS) json" =~ "$(EXT)" ]] && \
+		mkdir -p $(dir $@) && \
+		echo "$<": $(shell echo $(EXT) | tr "[a-z]" "[A-Z]") source file && \
+		n8-make-$(EXT) "$<" "$@" \
+		|| true
 
 clean:
 	@rm -rfv build
