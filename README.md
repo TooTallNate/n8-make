@@ -53,12 +53,40 @@ A few paths are ignored by default, and will not be compiled:
 
 ### clean
 
+``` bash
+$ n8-make clean
+```
+
 Deletes the `build` directory (or whatever `$(BUILDDIR)` get set to).
 
 
 ### distclean
 
+``` bash
+$ n8-make distclean
+```
+
 Deletes the `node_modules` directory.
+
+
+### Custom extensions
+
+For every file that gets compiled, a specialized executable is invoked for each
+file extension. For example, given the `.js` file extension, n8-make will invoke
+`n8-make-js inputfile.js build/outputfile.js` and the output file is generated
+from there.
+
+You may override the default extensions by passing `EXTENSIONS` env to n8-make.
+Say you wanted to use n8-make to compile `.coffee` files into js:
+
+``` bash
+$ n8-make build EXTENSIONS=coffee
+```
+
+But make sure you have a `n8-make-coffee` in your $PATH at this point!
+
+_HINT:_ n8-make inherits npm's `bin` directory, so you can utilize
+`devDependencies` in your package.json file to include said executable.
 
 
 License
