@@ -21,18 +21,14 @@ build: $(COMPILED_FILES)
 # Source Map information mapping back to the source file, which may
 # be used by `source-map-loader` (for Webpack)
 # or `source-map-support` (for Node.js).
-#
-# We have to check the file extension here before executing the compiler
-# in case of duplicate basenames with multiple file extensions. i.e.
-# if there's a `main.js` and a `main.css` file, then we want to process
-# the .js rule, but skip the .css rule.
-build/%.js build/%.json: %.*
-	@$(eval EXT=$(subst .,,$(suffix $<)))
-	@[[ "$(EXTENSIONS) json" =~ "$(EXT)" ]] && \
-		mkdir -p $(dir $@) && \
-		echo "$<": $(shell echo $(EXT) | tr "[a-z]" "[A-Z]") source file && \
-		n8-make-$(EXT) "$<" "$@" \
-		|| true
+define buildrule
+build/%.js build/%.json: %.$(1)
+	$$(eval EXT=$$(subst .,,$$(suffix $$<)))
+	@mkdir -p $$(dir $$@)
+	@echo "$$<": $$(shell echo $$(EXT) | tr "[a-z]" "[A-Z]") source file
+	@n8-make-$$(EXT) "$$<" "$$@"
+endef
+$(foreach ext,json js,$(eval $(call buildrule,$(ext))))
 
 clean:
 	@rm -rfv build
