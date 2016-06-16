@@ -12,6 +12,6 @@ fi
 
 FILENAME=`which $0`
 FILENAME=`"$NODE" -pe "require('fs').realpathSync('$FILENAME')"`
-export DIR=`dirname "$FILENAME"`
+DIR=`dirname "$FILENAME"`
 
 "$MAKE" -f "$DIR/Makefile" "$@"
