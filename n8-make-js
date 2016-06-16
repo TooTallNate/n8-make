@@ -1,8 +1,29 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 INPUT=$1; shift
 OUTPUT=$1; shift
 
+ARGS=
+PRESETS=es2015
+PLUGINS=transform-runtime,syntax-async-functions,transform-async-to-generator,transform-dirname-filename
+
+while [ "x$1" != "x" ]
+  do
+  case "$1" in
+    --preset)
+      shift
+      PRESETS="$PRESETS,$1"
+      ;;
+    --plugin)
+      shift
+      PLUGINS="$PLUGINS,$1"
+      ;;
+    *)
+      ARGS="$ARGS "$1""
+      ;;
+    esac
+  shift
+done
+
 # compile ES6 code to ES5 compat code for Webpack / Node.js
-#echo babel "$INPUT" --out-file "$OUTPUT" --source-maps --presets es2015 --plugins transform-runtime,syntax-async-functions,transform-async-to-generator,transform-dirname-filename "$@"
-babel "$INPUT" --out-file "$OUTPUT" --source-maps --presets es2015 --plugins transform-runtime,syntax-async-functions,transform-async-to-generator,transform-dirname-filename "$@"
+babel "$INPUT" --out-file "$OUTPUT" --source-maps --presets "$PRESETS" --plugins "$PLUGINS" $ARGS
