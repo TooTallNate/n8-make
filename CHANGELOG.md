@@ -1,3 +1,8 @@
+v1.0.6 2016-06-15
+
+* [[`8e156fe01e`](https://github.com/TooTallNate/n8-make/commit/8e156fe01e)] - **Makefile**: even more explicit rules (Nathan Rajlich)
+* [[`b749503801`](https://github.com/TooTallNate/n8-make/commit/b749503801)] - **Makefile**: dynamically define the build rules (Nathan Rajlich)
+
 v1.0.5 2016-06-08
 
 * [[`ae10be4daf`](https://github.com/TooTallNate/n8-make/commit/ae10be4daf)] - **n8-make-js**: comment out `echo` call (Nathan Rajlich)
