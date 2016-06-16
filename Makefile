@@ -8,7 +8,7 @@ export NODE_ENV ?= development
 # .json files are implicitly supported.
 EXTENSIONS ?= js jsx pug
 
-SOURCE_FILES := $(subst ./,,$(foreach ext,$(EXTENSIONS),$(shell find . -name "*.$(ext)" -not -path "./build/*" -not -path "./node_modules/*" -not -path "./webpack.config.js" -not -path "./public/*" -print)))
+SOURCE_FILES := $(subst ./,,$(foreach EXT,$(EXTENSIONS),$(shell find . -name "*.$(EXT)" -not -path "./build/*" -not -path "./node_modules/*" -not -path "./webpack.config.js" -not -path "./public/*" -print)))
 JSON_SOURCE_FILES := $(subst ./,,$(shell find . -name "*.json" -not -path "./build/*" -not -path "./node_modules/*" -not -path "./public/*" -print))
 
 COMPILED_FILES := $(addprefix build/, $(addsuffix .js,$(basename $(SOURCE_FILES))) $(JSON_SOURCE_FILES))
@@ -22,13 +22,13 @@ build: $(COMPILED_FILES)
 # be used by `source-map-loader` (for Webpack)
 # or `source-map-support` (for Node.js).
 define buildrule
-build/%.js build/%.json: %.$(1)
-	$$(eval EXT=$$(subst .,,$$(suffix $$<)))
+build/%.$(2): %.$(1)
 	@mkdir -p $$(dir $$@)
-	@echo "$$<": $$(shell echo $$(EXT) | tr "[a-z]" "[A-Z]") source file
-	@n8-make-$$(EXT) "$$<" "$$@"
+	@echo "$$<": $$(shell echo $(1) | tr "[a-z]" "[A-Z]") source file
+	@n8-make-$(1) "$$<" "$$@"
 endef
-$(foreach ext,json js,$(eval $(call buildrule,$(ext))))
+$(foreach EXT,$(EXTENSIONS),$(eval $(call buildrule,$(EXT),js)))
+$(eval $(call buildrule,json,json))
 
 clean:
 	@rm -rfv build
