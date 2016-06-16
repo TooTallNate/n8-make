@@ -1,3 +1,11 @@
+v1.1.0 2016-06-16
+
+* [[`8a0bae1446`](https://github.com/TooTallNate/n8-make/commit/8a0bae1446)] - add index.js file (Nathan Rajlich)
+* [[`6c93e2cf93`](https://github.com/TooTallNate/n8-make/commit/6c93e2cf93)] - **make**: don't export DIR (Nathan Rajlich)
+* [[`06a33ff1c9`](https://github.com/TooTallNate/n8-make/commit/06a33ff1c9)] - **Makefile**: make the build dir configurable (Nathan Rajlich)
+* [[`a27eee3778`](https://github.com/TooTallNate/n8-make/commit/a27eee3778)] - **n8-make-jsx**: use the singular `--preset` option (Nathan Rajlich)
+* [[`20b8eb5478`](https://github.com/TooTallNate/n8-make/commit/20b8eb5478)] - **n8-make-js**: cleaner processing of args (Nathan Rajlich)
+
 v1.0.6 2016-06-15
 
 * [[`8e156fe01e`](https://github.com/TooTallNate/n8-make/commit/8e156fe01e)] - **Makefile**: even more explicit rules (Nathan Rajlich)
