@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-# compile React.js code to ES5 compat code for Webpack / Node.js
-n8-make-js "$@" --presets react
+# compile React.js JSX code to ES5 compat code for Webpack / Node.js
+n8-make-js "$@" --preset react
