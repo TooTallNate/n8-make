@@ -2,16 +2,16 @@ n8-make
 =======
 ### Opinionated Makefile to build ES6 JS, JSX and Pug files
 
-`n8-make` is a wrapper around Make with a Makefile that is
-meant to compile JavaScript (and related) files for usage with
-Node.js and the web browser.
+`n8-make` is a wrapper around [`make`](https://www.gnu.org/software/make/)
+with a Makefile designed to compile JavaScript (and related) files for
+usage with Node.js and the web browser.
 
 By default, these file extensions get compiled into the `build` directory:
 
- * `.js` - Compiled via Babel 6 with support for ES6 and `async` functions
- * `.jsx` - Same as `.js`, but with the `react` preset included as well
- * `.pug` - Pug (a.k.a Jade) lang files get compiled into requireable template functions
- * `.json` - JSON files work as expected
+ * `.js` - Compiled via [Babel 6](https://babeljs.io) with support for [ES6](http://babeljs.io/docs/plugins/preset-es2015/) and [`async` functions](https://babeljs.io/docs/plugins/transform-async-to-generator/)
+ * `.jsx` - Same as `.js`, but with the [`react`](https://www.npmjs.com/package/babel-preset-react) preset included as well
+ * `.pug` - [Pug (a.k.a Jade) lang](http://jade-lang.com/) files get compiled into requireable template functions
+ * `.json` - JSON files work as expected (use [`json-loader`](https://www.npmjs.com/package/json-loader) for client-side usage)
 
 
 Installation
@@ -83,9 +83,10 @@ Say you wanted to use n8-make to compile `.coffee` files into js:
 $ n8-make build EXTENSIONS=coffee
 ```
 
-But make sure you have a `n8-make-coffee` in your $PATH at this point!
+But make sure you have a `n8-make-coffee` executable in your $PATH at this
+point!
 
-_HINT:_ n8-make inherits npm's `bin` directory, so you can utilize
+__*HINT!*__ n8-make inherits npm's `bin` directory, so you can utilize
 `devDependencies` in your package.json file to include said executable.
 
 
