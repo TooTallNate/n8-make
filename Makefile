@@ -7,6 +7,9 @@ BUILDDIR ?= build
 # .json files are implicitly supported.
 EXTENSIONS ?= js jsx pug
 
+# Paths to ignore for the build
+IGNORE ?= $(BUILDDIR) node_modules webpack.config.js public
+
 # get Makefile directory name: http://stackoverflow.com/a/5982798/376773
 THIS_MAKEFILE_PATH := $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
 DIR := $(shell cd $(dir $(THIS_MAKEFILE_PATH));pwd)
@@ -15,8 +18,13 @@ export PATH := $(PATH):$(shell npm bin):$(shell cd "$(DIR)" && npm bin):$(DIR)
 export NODE_PATH := $(NODE_PATH):$(DIR)/node_modules
 export NODE_ENV ?= development
 
-SOURCE_FILES := $(subst ./,,$(foreach EXT,$(EXTENSIONS),$(shell find . -name "*.$(EXT)" -not -path "./$(BUILDDIR)/*" -not -path "./node_modules/*" -not -path "./webpack.config.js" -not -path "./public/*" -print)))
-JSON_SOURCE_FILES := $(subst ./,,$(shell find . -name "*.json" -not -path "./$(BUILDDIR)/*" -not -path "./node_modules/*" -not -path "./public/*" -print))
+FIND_EXT_ := $(foreach EXT,$(EXTENSIONS),-o -name "*.$(EXT)")
+FIND_EXT := $(wordlist 2,$(words $(FIND_EXT_)),$(FIND_EXT_))
+FIND_IGNORE := $(foreach IG,$(IGNORE),! -path "./$(IG)*")
+
+SOURCE_FILES := $(subst ./,,$(shell find . \( $(FIND_EXT) \) $(FIND_IGNORE)))
+
+JSON_SOURCE_FILES := $(subst ./,,$(shell find . -name "*.json" $(FIND_IGNORE)))
 
 COMPILED_FILES := $(addprefix $(BUILDDIR)/, $(addsuffix .js,$(basename $(SOURCE_FILES))) $(JSON_SOURCE_FILES))
 
