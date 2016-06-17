@@ -14,4 +14,4 @@ FILENAME=`which $0`
 FILENAME=`"$NODE" -pe "require('fs').realpathSync('$FILENAME')"`
 DIR=`dirname "$FILENAME"`
 
-"$MAKE" -f "$DIR/Makefile" "$@"
+"$MAKE" -f "$DIR/Makefile" --no-builtin-rules --no-builtin-variables "$@"
