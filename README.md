@@ -89,6 +89,19 @@ _HINT:_ n8-make inherits npm's `bin` directory, so you can utilize
 `devDependencies` in your package.json file to include said executable.
 
 
+### Extending the Makefile
+
+If you would still prefer to have your own Makefile, say to add additional rules
+or tweak existing variables, then you can easily extend the n8-make Makefile using
+the following syntax:
+
+``` make
+include $(shell node -e "require('n8-make')")
+```
+
+This assumes that `n8-make` is a dependency of your project.
+
+
 License
 -------
 
