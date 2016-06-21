@@ -1,3 +1,10 @@
+v1.2.0 2016-06-16
+
+* [[`4d0d292462`](https://github.com/TooTallNate/n8-make/commit/4d0d292462)] - **Makefile**: make ignore paths configurable with `IGNORE` var (Nathan Rajlich)
+* [[`60eac146c8`](https://github.com/TooTallNate/n8-make/commit/60eac146c8)] - **make**: add `--no-builtin-rules` and `--no-builtin-variables` switches (Nathan Rajlich)
+* [[`5d619aa92d`](https://github.com/TooTallNate/n8-make/commit/5d619aa92d)] - **package**: use `^` caret consistently (Nathan Rajlich)
+* [[`86e54bbaff`](https://github.com/TooTallNate/n8-make/commit/86e54bbaff)] - add README.md file (Nathan Rajlich)
+
 v1.1.0 2016-06-16
 
 * [[`8a0bae1446`](https://github.com/TooTallNate/n8-make/commit/8a0bae1446)] - add index.js file (Nathan Rajlich)
