@@ -14,8 +14,8 @@ IGNORE ?= $(BUILDDIR) node_modules webpack.config.js public
 THIS_MAKEFILE_PATH := $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
 DIR := $(shell cd $(dir $(THIS_MAKEFILE_PATH));pwd)
 
-export PATH := $(PATH):$(shell npm bin):$(shell cd "$(DIR)" && npm bin):$(DIR)
-export NODE_PATH := $(NODE_PATH):$(DIR)/node_modules
+export PATH := $(shell npm bin):$(shell cd "$(DIR)" && npm bin):$(DIR):$(PATH)
+export NODE_PATH := $(DIR)/node_modules:$(NODE_PATH)
 export NODE_ENV ?= development
 
 FIND_EXT_ := $(foreach EXT,$(EXTENSIONS),-o -name "*.$(EXT)")
