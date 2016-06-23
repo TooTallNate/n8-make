@@ -22,9 +22,9 @@ FIND_EXT_ := $(foreach EXT,$(EXTENSIONS),-o -name "*.$(EXT)")
 FIND_EXT := $(wordlist 2,$(words $(FIND_EXT_)),$(FIND_EXT_))
 FIND_IGNORE := $(foreach IG,$(IGNORE),! -path "./$(IG)*")
 
-SOURCE_FILES := $(subst ./,,$(shell find . \( $(FIND_EXT) \) $(FIND_IGNORE)))
+SOURCE_FILES := $(subst ./,,$(shell find . \( $(FIND_EXT) \) $(FIND_IGNORE) -exec test -e {} \; -print))
 
-JSON_SOURCE_FILES := $(subst ./,,$(shell find . -name "*.json" $(FIND_IGNORE)))
+JSON_SOURCE_FILES := $(subst ./,,$(shell find . -name "*.json" $(FIND_IGNORE) -exec test -e {} \; -print))
 
 COMPILED_FILES := $(addprefix $(BUILDDIR)/, $(addsuffix .js,$(basename $(SOURCE_FILES))) $(JSON_SOURCE_FILES))
 
