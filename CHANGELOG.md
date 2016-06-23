@@ -1,3 +1,7 @@
+v1.2.1 2016-06-16
+
+* [[`86b8e3d55d`](https://github.com/TooTallNate/n8-make/commit/86b8e3d55d)] - **Makefile**: filter out dangling symlinks (Nathan Rajlich)
+
 v1.2.0 2016-06-16
 
 * [[`4d0d292462`](https://github.com/TooTallNate/n8-make/commit/4d0d292462)] - **Makefile**: make ignore paths configurable with `IGNORE` var (Nathan Rajlich)
