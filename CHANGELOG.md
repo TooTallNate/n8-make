@@ -1,3 +1,8 @@
+v1.2.2 2016-06-16
+
+* [[`jb2674c0f4`](https://github.com/TooTallNate/n8-make/commit/bb2674c0f4)] - **Makefile**: add a "debug" function (Nathan Rajlich)
+* [[`310da36f84`](https://github.com/TooTallNate/n8-make/commit/310da36f84)] - **Makefile**: give our local bin and modules preference (Nathan Rajlich)
+
 v1.2.1 2016-06-16
 
 * [[`86b8e3d55d`](https://github.com/TooTallNate/n8-make/commit/86b8e3d55d)] - **Makefile**: filter out dangling symlinks (Nathan Rajlich)
