@@ -5,7 +5,7 @@ OUTPUT=$1; shift
 
 ARGS=
 PRESETS=es2015
-PLUGINS=transform-runtime,syntax-async-functions,transform-async-to-generator,transform-dirname-filename
+PLUGINS=transform-runtime,syntax-async-functions,transform-async-to-generator,transform-dirname-filename,add-module-exports
 
 while [ "x$1" != "x" ]
   do
