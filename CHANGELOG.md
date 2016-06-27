@@ -1,3 +1,7 @@
+v1.3.0 2016-06-27
+
+* [[`16b7550039`](https://github.com/TooTallNate/n8-make/commit/16b7550039)] - add `babel-plugin-add-module-exports` (Nathan Rajlich)
+
 v1.2.2 2016-06-16
 
 * [[`jb2674c0f4`](https://github.com/TooTallNate/n8-make/commit/bb2674c0f4)] - **Makefile**: add a "debug" function (Nathan Rajlich)
