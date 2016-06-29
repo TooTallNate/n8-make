@@ -69,13 +69,27 @@ $ n8-make distclean
 Deletes the `node_modules` directory.
 
 
-### Source
+### Root directory
 
-The source files and/or folders can be defined by passing `SOURCE ` env to n8-make.
+The root directory that source files will be found in can be defined by
+setting the `ROOT` env variable:
 
 ``` bash
-n8-make build SOURCE=lib
+$ n8-make build ROOT=lib
 ```
+
+This would only compile source files from the `lib` directory relative to the
+current working directory into the `build/lib` dir.
+
+Another option is to utilize Make's `--directory`/`-C` option:
+
+``` bash
+$ n8-make build --directory lib
+```
+
+This would do the same thing, but the `build` dir would end up inside of `lib`,
+rather then relative to your current working directory.
+
 
 ### Custom extensions
 
