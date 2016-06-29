@@ -69,6 +69,14 @@ $ n8-make distclean
 Deletes the `node_modules` directory.
 
 
+### Source
+
+The source files and/or folders can be defined by passing `SOURCE ` env to n8-make.
+
+``` bash
+n8-make build SOURCE=lib
+```
+
 ### Custom extensions
 
 For every file that gets compiled, a specialized executable is invoked for each

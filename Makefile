@@ -18,6 +18,9 @@ export PATH := $(shell npm bin):$(shell cd "$(DIR)" && npm bin):$(DIR):$(PATH)
 export NODE_PATH := $(DIR)/node_modules:$(NODE_PATH)
 export NODE_ENV ?= development
 
+# Source files/dirs
+SOURCE ?= .
+
 # The directory to place the compiled .js and .json files.
 BUILDDIR ?= build
 
@@ -34,8 +37,8 @@ FIND_EXT_ := $(foreach EXT,$(EXTENSIONS),-o -name "*.$(EXT)")
 FIND_EXT := $(wordlist 2,$(words $(FIND_EXT_)),$(FIND_EXT_))
 FIND_IGNORE := $(foreach IG,$(IGNORE),! -path "./$(IG)*")
 
-SOURCE_FILES := $(subst ./,,$(shell find . \( $(FIND_EXT) \) $(FIND_IGNORE) -exec test -e {} \; -print))
-JSON_SOURCE_FILES := $(subst ./,,$(shell find . -name "*.json" $(FIND_IGNORE) -exec test -e {} \; -print))
+SOURCE_FILES := $(subst ./,,$(shell find $(SOURCE) \( $(FIND_EXT) \) $(FIND_IGNORE) -exec test -e {} \; -print))
+JSON_SOURCE_FILES := $(subst ./,,$(shell find $(SOURCE) -name "*.json" $(FIND_IGNORE) -exec test -e {} \; -print))
 $(call debug,source files = $(SOURCE_FILES) $(JSON_SOURCE_FILES))
 
 COMPILED_FILES := $(addprefix $(BUILDDIR)/, $(addsuffix .js,$(basename $(SOURCE_FILES))) $(JSON_SOURCE_FILES))
