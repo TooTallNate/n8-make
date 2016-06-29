@@ -30,12 +30,12 @@ EXTENSIONS ?= js jsx pug
 $(call debug,will compile extensions = $(EXTENSIONS))
 
 # Paths to ignore for the build
-IGNORE ?= $(BUILDDIR) node_modules webpack.config.js public
-$(call debug,ignoring paths = $(IGNORE))
+IGNORE_PATHS ?= $(IGNORE) $(BUILDDIR) node_modules webpack.config.js public
+$(call debug,ignoring paths = $(IGNORE_PATHS))
 
 FIND_EXT_ := $(foreach EXT,$(EXTENSIONS),-o -name "*.$(EXT)")
 FIND_EXT := $(wordlist 2,$(words $(FIND_EXT_)),$(FIND_EXT_))
-FIND_IGNORE := $(foreach IG,$(IGNORE),! -path "./$(IG)*")
+FIND_IGNORE := $(foreach IG,$(IGNORE_PATHS),! -path "./$(IG)*")
 
 SOURCE_FILES := $(subst ./,,$(shell find $(ROOT) \( $(FIND_EXT) \) $(FIND_IGNORE) -exec test -e {} \; -print))
 JSON_SOURCE_FILES := $(subst ./,,$(shell find $(ROOT) -name "*.json" $(FIND_IGNORE) -exec test -e {} \; -print))
