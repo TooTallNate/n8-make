@@ -103,6 +103,22 @@ include $(shell node -e "require('n8-make')")
 This assumes that `n8-make` is a dependency of your project.
 
 
+Debug
+-----
+
+To get debugging log output from `n8-make`, include "n8-make" in the `DEBUG` env
+variable:
+
+``` bash
+$ DEBUG=n8-make n8-make build
+n8-make: will compile extensions = js jsx pug
+n8-make: ignoring paths = build node_modules webpack.config.js public
+n8-make: source files = j.pug r.jsx t.js package.json
+n8-make: output files = build/j.js build/r.js build/t.js build/package.json
+…
+```
+
+
 License
 -------
 
