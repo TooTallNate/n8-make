@@ -50,6 +50,8 @@ A few paths are ignored by default, and will not be compiled:
  * `public`
  * `webpack.config.js`
 
+You may override the default ignore paths by defining the `IGNORE` env variable.
+
 
 ### clean
 
