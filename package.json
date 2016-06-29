@@ -1,6 +1,6 @@
 {
   "name": "n8-make",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Opinionated Makefile to build ES6 JS, JSX and Pug files",
   "main": "index.js",
   "bin": "./make.sh",

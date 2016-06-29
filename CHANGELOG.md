@@ -1,3 +1,9 @@
+v1.4.0 2016-06-29
+
+* [[`80a7d11d20`](https://github.com/TooTallNate/n8-make/commit/80a7d11d20)] - Rename SOURCE to ROOT (Nathan Rajlich)
+* [[`58a7ea8f9b`](https://github.com/TooTallNate/n8-make/commit/58a7ea8f9b)] - add `SOURCE` env (retrofox)
+* [[`b476b7ccb6`](https://github.com/TooTallNate/n8-make/commit/b476b7ccb6)] - **README**: add Debug instructions (Nathan Rajlich)
+
 v1.3.0 2016-06-27
 
 * [[`16b7550039`](https://github.com/TooTallNate/n8-make/commit/16b7550039)] - add `babel-plugin-add-module-exports` (Nathan Rajlich)
