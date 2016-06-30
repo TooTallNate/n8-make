@@ -24,10 +24,12 @@ for i in $TEST_DIRS; do
   # allow for a `test.js` or `test.sh` file per-test
   if [ -f $i/build/test.js ]
   then
-    $NODE $i/build/test.js
+    "$NODE" $i/build/test.js
   else
     $i/test.sh
   fi
+
+  cd "$DIR"
 
   # exit early if the test failed
   EXIT=$?
@@ -36,6 +38,4 @@ for i in $TEST_DIRS; do
     echo "Test failed! Bailing early…"
     exit $EXIT
   fi
-
-  cd -
 done;
