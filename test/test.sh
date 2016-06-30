@@ -13,7 +13,7 @@ DIR=`dirname "$FILENAME"`
 # expose `n8-make` to the PATH
 export PATH=$PATH:$DIR/..
 
-TEST_DIRS=$(find "$DIR" -type d -mindepth 1 -maxdepth 1)
+TEST_DIRS=$(find "$DIR" -mindepth 1 -maxdepth 1 -type d)
 
 for i in $TEST_DIRS; do
   echo testing: $i
