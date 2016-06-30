@@ -6,6 +6,10 @@ if [ "x$NODE" = "x" ]; then
   NODE=node
 fi
 
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+RESET=`tput sgr0`
+
 FILENAME=`which $0`
 FILENAME=`"$NODE" -pe "require('fs').realpathSync('$FILENAME')"`
 DIR=`dirname "$FILENAME"`
@@ -14,6 +18,10 @@ DIR=`dirname "$FILENAME"`
 export PATH=$PATH:$DIR/..
 
 TEST_DIRS=$(find "$DIR" -mindepth 1 -maxdepth 1 -type d)
+
+for i in $TEST_DIRS; do
+  n8-make clean --directory "$i"
+done
 
 for i in $TEST_DIRS; do
   echo testing: $i
@@ -33,9 +41,11 @@ for i in $TEST_DIRS; do
 
   # exit early if the test failed
   EXIT=$?
-  if [ $EXIT != 0 ]
+  if [ $EXIT = 0 ]
   then
-    echo "Test failed! Bailing early…"
+    echo " ${GREEN}✓${RESET} Pass"
+  else
+    echo " ${RED}✗${RESET} Failed, bailing…"
     exit $EXIT
   fi
 done;
