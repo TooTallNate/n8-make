@@ -27,7 +27,7 @@ BUILDDIR ?= build
 # Source file extensions to process into .js files.
 # .json files are implicitly supported.
 EXTENSIONS ?= js jsx pug
-$(call debug,will compile extensions = $(EXTENSIONS))
+$(call debug,compiling extensions = $(EXTENSIONS))
 
 # Paths to ignore for the build
 IGNORE_PATHS ?= $(IGNORE) $(BUILDDIR) node_modules webpack.config.js public
