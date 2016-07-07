@@ -35,10 +35,14 @@ $(call debug,ignoring paths = $(IGNORE_PATHS))
 
 FIND_EXT_ := $(foreach EXT,$(EXTENSIONS),-o -name "*.$(EXT)")
 FIND_EXT := $(wordlist 2,$(words $(FIND_EXT_)),$(FIND_EXT_))
-FIND_IGNORE := $(foreach IG,$(IGNORE_PATHS),! \( -path "./$(IG)" -prune \))
+FIND_IGNORE_FILES := $(foreach IG,$(IGNORE_PATHS),! \( -path "./$(IG)" \))
+FIND_IGNORE_DIRS := $(foreach IG,$(IGNORE_PATHS),! \( -path "./$(IG)" -prune \))
 
-SOURCE_FILES := $(subst ./,,$(shell find $(ROOT) \( $(FIND_EXT) \) -print -o $(FIND_IGNORE) -exec test -e {} \;))
-JSON_SOURCE_FILES := $(subst ./,,$(shell find $(ROOT) -name "*.json" -print -o $(FIND_IGNORE) -exec test -e {} \;))
+FIND_COMMAND := find $(ROOT) \( $(FIND_EXT) \) $(FIND_IGNORE_FILES) -exec test -e {} \; -print -o $(FIND_IGNORE_DIRS)
+$(call debug,$(FIND_COMMAND))
+SOURCE_FILES := $(subst ./,,$(shell $(FIND_COMMAND)))
+
+JSON_SOURCE_FILES := $(subst ./,,$(shell find $(ROOT) -name "*.json" $(FIND_IGNORE_FILES) -exec test -e {} \; -print -o $(FIND_IGNORE_DIRS)))
 $(call debug,source files = $(SOURCE_FILES) $(JSON_SOURCE_FILES))
 
 COMPILED_FILES := $(addprefix $(BUILDDIR)/, $(addsuffix .js,$(basename $(SOURCE_FILES))) $(JSON_SOURCE_FILES))
