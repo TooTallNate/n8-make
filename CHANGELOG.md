@@ -1,3 +1,14 @@
+v1.5.0 2016-06-29
+
+* [[`028a779d5f`](https://github.com/TooTallNate/n8-make/commit/028a779d5f)] - add .travis.yml file (Nathan Rajlich)
+* [[`48df5f05a1`](https://github.com/TooTallNate/n8-make/commit/48df5f05a1)] - add .npmignore file (Nathan Rajlich)
+* [[`c4a35e814e`](https://github.com/TooTallNate/n8-make/commit/c4a35e814e)] - add initial test framework (Nathan Rajlich)
+* [[`e2f8eb8bc9`](https://github.com/TooTallNate/n8-make/commit/e2f8eb8bc9)] - rename `make.sh` to `n8-make` (Nathan Rajlich)
+* [[`5d445d40be`](https://github.com/TooTallNate/n8-make/commit/5d445d40be)] - **Makefile**: use unix find `-prune` option (Nathan Rajlich)
+* [[`a555ebb803`](https://github.com/TooTallNate/n8-make/commit/a555ebb803)] - **Makefile**: use present tense for debug call (Nathan Rajlich)
+* [[`0252188d26`](https://github.com/TooTallNate/n8-make/commit/0252188d26)] - **Makefile**: make `IGNORE` augment the default list (Nathan Rajlich)
+* [[`e5a39cd28a`](https://github.com/TooTallNate/n8-make/commit/e5a39cd28a)] - **README**: add note about `IGNORE` env variable (Nathan Rajlich)
+
 v1.4.0 2016-06-29
 
 * [[`80a7d11d20`](https://github.com/TooTallNate/n8-make/commit/80a7d11d20)] - Rename SOURCE to ROOT (Nathan Rajlich)
