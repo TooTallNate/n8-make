@@ -1,3 +1,8 @@
+v1.6.0 2016-09-10
+
+* [[`0647d1347d`](https://github.com/TooTallNate/n8-make/commit/0647d1347d)] - **webpack**: fix n8-make's own deps resolving properly (Nathan Rajlich)
+* [[`febe71907f`](https://github.com/TooTallNate/n8-make/commit/febe71907f)] - add Webpack client-side build (Nathan Rajlich)
+
 v1.5.0 2016-06-29
 
 * [[`028a779d5f`](https://github.com/TooTallNate/n8-make/commit/028a779d5f)] - add .travis.yml file (Nathan Rajlich)
