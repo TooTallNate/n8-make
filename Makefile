@@ -24,6 +24,13 @@ ROOT ?= .
 # The directory to place the compiled .js and .json files.
 BUILDDIR ?= build
 
+# The client-side entry point file pattern (if a file exists
+# matching this pattern then the webpack client-side file is built)
+WEBPACK_ENTRY ?= client/index.*
+
+# The output filename for the Webpack client-side build to use.
+WEBPACK_BUILD ?= public/build.js
+
 # Source file extensions to process into .js files.
 # .json files are implicitly supported.
 EXTENSIONS ?= js jsx pug
@@ -48,7 +55,13 @@ $(call debug,source files = $(SOURCE_FILES) $(JSON_SOURCE_FILES))
 COMPILED_FILES := $(addprefix $(BUILDDIR)/, $(addsuffix .js,$(basename $(SOURCE_FILES))) $(JSON_SOURCE_FILES))
 $(call debug,output files = $(COMPILED_FILES))
 
-build: $(COMPILED_FILES)
+WEBPACK_ENTRY_FILE := $(wildcard client/index.*)
+ifneq ("$(WEBPACK_ENTRY_FILE)","")
+DO_WEBPACK_BUILD = $(WEBPACK_BUILD)
+$(call debug,webpack build = $(DO_WEBPACK_BUILD))
+endif
+
+build: $(COMPILED_FILES) $(DO_WEBPACK_BUILD)
 
 # Source files that need to be compiled into regular .js files.
 #
@@ -65,8 +78,18 @@ endef
 $(foreach EXT,$(EXTENSIONS),$(eval $(call buildrule,$(EXT),js)))
 $(eval $(call buildrule,json,json))
 
+# Webpack client-side build, placed at `public/build.js` by default.
+$(WEBPACK_BUILD): $(COMPILED_FILES)
+	@mkdir -p $(dir $@)
+	@echo Webpack client-side build: "$(WEBPACK_ENTRY_FILE)" → "$@"
+	@webpack \
+		--config "$(DIR)/webpack.config.js" \
+		--entry "./$(BUILDDIR)/$(WEBPACK_ENTRY_FILE)" \
+		--output-path "$(dir $@)" \
+		--output-filename "$(notdir $@)"
+
 clean:
-	@rm -rfv $(BUILDDIR)
+	@rm -rfv $(BUILDDIR) $(WEBPACK_BUILD)
 
 distclean:
 	@rm -rfv node_modules
