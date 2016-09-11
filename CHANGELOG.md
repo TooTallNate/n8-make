@@ -1,3 +1,8 @@
+v1.6.1 2016-09-11
+
+* [[`70e2bdc8ad`](https://github.com/TooTallNate/n8-make/commit/70e2bdc8ad)] - **Makefile**: fix webpack entry point when not a .js file (Nathan Rajlich)
+* [[`a93bd0b362`](https://github.com/TooTallNate/n8-make/commit/a93bd0b362)] - Release 1.6.0 (Nathan Rajlich)
+
 v1.6.0 2016-09-10
 
 * [[`0647d1347d`](https://github.com/TooTallNate/n8-make/commit/0647d1347d)] - **webpack**: fix n8-make's own deps resolving properly (Nathan Rajlich)
