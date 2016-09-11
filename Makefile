@@ -84,7 +84,7 @@ $(WEBPACK_BUILD): $(COMPILED_FILES)
 	@echo Webpack client-side build: "$(WEBPACK_ENTRY_FILE)" → "$@"
 	@webpack \
 		--config "$(DIR)/webpack.config.js" \
-		--entry "./$(BUILDDIR)/$(WEBPACK_ENTRY_FILE)" \
+		--entry "./$(addprefix $(BUILDDIR)/,$(addsuffix .js,$(basename $(WEBPACK_ENTRY_FILE))))" \
 		--output-path "$(dir $@)" \
 		--output-filename "$(notdir $@)"
 
