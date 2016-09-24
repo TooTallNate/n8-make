@@ -1,3 +1,7 @@
+v1.6.2 2016-09-24
+
+* [[`d2c2b19e8e`](https://github.com/TooTallNate/n8-make/commit/d2c2b19e8e)] - **webpack**: fix source maps (Nathan Rajlich)
+
 v1.6.1 2016-09-11
 
 * [[`70e2bdc8ad`](https://github.com/TooTallNate/n8-make/commit/70e2bdc8ad)] - **Makefile**: fix webpack entry point when not a .js file (Nathan Rajlich)
