@@ -26,5 +26,7 @@ module.exports = {
         loader: require.resolve('json-loader')
       }
     ]
-  }
+  },
+  debug: true,
+  devtool: 'source-map'
 };
