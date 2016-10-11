@@ -26,4 +26,10 @@ while [ "x$1" != "x" ]
 done
 
 # compile ES6 code to ES5 compat code for Webpack / Node.js
-babel "$INPUT" --out-file "$OUTPUT" --source-maps --presets "$PRESETS" --plugins "$PLUGINS" $ARGS
+babel \
+  "$INPUT" \
+  --out-file "$OUTPUT" \
+  --source-maps \
+  --presets "$PRESETS" \
+  --plugins "$PLUGINS" \
+  $ARGS
