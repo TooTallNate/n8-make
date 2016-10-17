@@ -74,6 +74,7 @@ $$(BUILDDIR)/%.$(2): %.$(1)
 	@mkdir -p $$(dir $$@)
 	@echo $$(shell echo $(1) | tr "[a-z]" "[A-Z]") source file: "$$<" → "$$@"
 	@n8-make-$(1) "$$<" "$$@"
+	@chmod $$(shell stat --format=%a "$$<") "$$@"
 endef
 $(foreach EXT,$(EXTENSIONS),$(eval $(call buildrule,$(EXT),js)))
 $(eval $(call buildrule,json,json))
