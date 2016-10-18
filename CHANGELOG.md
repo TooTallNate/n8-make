@@ -1,3 +1,8 @@
+v1.7.0 2016-10-17
+
+* [[`77b81ea877`](https://github.com/TooTallNate/n8-make/commit/77b81ea877)] - **Makefile**: chmod the output files to match the input files (Nathan Rajlich)
+* [[`c425db4e17`](https://github.com/TooTallNate/n8-make/commit/c425db4e17)] - **n8-make-js**: better readability (Nathan Rajlich)
+
 v1.6.2 2016-09-24
 
 * [[`d2c2b19e8e`](https://github.com/TooTallNate/n8-make/commit/d2c2b19e8e)] - **webpack**: fix source maps (Nathan Rajlich)
