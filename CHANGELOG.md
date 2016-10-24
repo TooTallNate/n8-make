@@ -1,3 +1,7 @@
+v1.8.0 2016-10-24
+
+* [[`4d9c6e89c9`](https://github.com/TooTallNate/n8-make/commit/4d9c6e89c9)] - enable `transform-object-rest-spread` (Nathan Rajlich)
+
 v1.7.0 2016-10-17
 
 * [[`77b81ea877`](https://github.com/TooTallNate/n8-make/commit/77b81ea877)] - **Makefile**: chmod the output files to match the input files (Nathan Rajlich)
