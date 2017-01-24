@@ -1,3 +1,7 @@
+v1.8.1 2017-01-24
+
+* [[`48b514eea5`](https://github.com/TooTallNate/n8-make/commit/48b514eea5)] - use more compatible `stat` command (Nathan Rajlich)
+
 v1.8.0 2016-10-24
 
 * [[`4d9c6e89c9`](https://github.com/TooTallNate/n8-make/commit/4d9c6e89c9)] - enable `transform-object-rest-spread` (Nathan Rajlich)
