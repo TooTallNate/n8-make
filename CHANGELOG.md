@@ -1,3 +1,7 @@
+v1.8.2 2017-01-26
+
+* [[`aad27fc219`](https://github.com/TooTallNate/n8-make/commit/aad27fc219)] - handle MacOS/BSD vs. Linux/coreutils `stat` command differences (Nathan Rajlich)
+
 v1.8.1 2017-01-24
 
 * [[`48b514eea5`](https://github.com/TooTallNate/n8-make/commit/48b514eea5)] - use more compatible `stat` command (Nathan Rajlich)
