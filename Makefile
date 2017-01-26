@@ -55,6 +55,15 @@ $(call debug,source files = $(SOURCE_FILES) $(JSON_SOURCE_FILES))
 COMPILED_FILES := $(addprefix $(BUILDDIR)/, $(addsuffix .js,$(basename $(SOURCE_FILES))) $(JSON_SOURCE_FILES))
 $(call debug,output files = $(COMPILED_FILES))
 
+# handle MacOS/BSD vs. Linux/coreutils `stat` command differences
+STAT_TYPE=$(shell stat --version 2>&1 | grep coreutils)
+ifeq ("$(STAT_TYPE)", "")
+STAT_FORMAT=-f "%p"
+else
+STAT_FORMAT=-c "%a"
+endif
+$(call debug,$(STAT_FORMAT))
+
 WEBPACK_ENTRY_FILE := $(wildcard client/index.*)
 ifneq ("$(WEBPACK_ENTRY_FILE)","")
 DO_WEBPACK_BUILD = $(WEBPACK_BUILD)
@@ -74,7 +83,7 @@ $$(BUILDDIR)/%.$(2): %.$(1)
 	@mkdir -p $$(dir $$@)
 	@echo $$(shell echo $(1) | tr "[a-z]" "[A-Z]") source file: "$$<" → "$$@"
 	@n8-make-$(1) "$$<" "$$@"
-	@chmod $$(shell stat -f '%p' "$$<") "$$@"
+	@chmod $$(shell stat $(STAT_FORMAT) "$$<") "$$@"
 endef
 $(foreach EXT,$(EXTENSIONS),$(eval $(call buildrule,$(EXT),js)))
 $(eval $(call buildrule,json,json))
