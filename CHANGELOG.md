@@ -1,3 +1,7 @@
+v1.8.3 2017-06-01
+
+* [[`d1e0902e47`](https://github.com/TooTallNate/n8-make/commit/d1e0902e47)] - fix BusyBox `stat` (Nathan Rajlich)
+
 v1.8.2 2017-01-26
 
 * [[`aad27fc219`](https://github.com/TooTallNate/n8-make/commit/aad27fc219)] - handle MacOS/BSD vs. Linux/coreutils `stat` command differences (Nathan Rajlich)
