@@ -55,13 +55,11 @@ $(call debug,source files = $(SOURCE_FILES) $(JSON_SOURCE_FILES))
 COMPILED_FILES := $(addprefix $(BUILDDIR)/, $(addsuffix .js,$(basename $(SOURCE_FILES))) $(JSON_SOURCE_FILES))
 $(call debug,output files = $(COMPILED_FILES))
 
-# handle MacOS/BSD vs. Linux/coreutils `stat` command differences
+# handle BSD, coreutils, busybox, etc. `stat` command differences
 STAT_VERSION := $(shell stat --version 2>&1)
 $(call debug,stat --version: $(STAT_VERSION))
 
 STAT_TYPE=$(shell echo "$(STAT_VERSION)" | grep -i 'coreutils\|busybox')
-$(call debug,STAT_TYPE: $(STAT_TYPE))
-
 ifeq ("$(STAT_TYPE)", "")
 STAT_FORMAT=-f "%p"
 else
