@@ -56,13 +56,18 @@ COMPILED_FILES := $(addprefix $(BUILDDIR)/, $(addsuffix .js,$(basename $(SOURCE_
 $(call debug,output files = $(COMPILED_FILES))
 
 # handle MacOS/BSD vs. Linux/coreutils `stat` command differences
-STAT_TYPE=$(shell stat --version 2>&1 | grep -i 'coreutils\|busybox')
+STAT_VERSION := $(shell stat --version)
+$(call debug,stat --version: $(STAT_VERSION))
+
+STAT_TYPE=$(shell echo "$(STAT_VERSION)" | grep -i 'coreutils\|busybox')
+$(call debug,STAT_TYPE: $(STAT_TYPE))
+
 ifeq ("$(STAT_TYPE)", "")
 STAT_FORMAT=-f "%p"
 else
 STAT_FORMAT=-c "%a"
 endif
-$(call debug,$(STAT_FORMAT))
+$(call debug,stat format: $(STAT_FORMAT))
 
 WEBPACK_ENTRY_FILE := $(wildcard client/index.*)
 ifneq ("$(WEBPACK_ENTRY_FILE)","")
