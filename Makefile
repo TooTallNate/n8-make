@@ -56,7 +56,7 @@ COMPILED_FILES := $(addprefix $(BUILDDIR)/, $(addsuffix .js,$(basename $(SOURCE_
 $(call debug,output files = $(COMPILED_FILES))
 
 # handle MacOS/BSD vs. Linux/coreutils `stat` command differences
-STAT_VERSION := $(shell stat --version)
+STAT_VERSION := $(shell stat --version 2>&1)
 $(call debug,stat --version: $(STAT_VERSION))
 
 STAT_TYPE=$(shell echo "$(STAT_VERSION)" | grep -i 'coreutils\|busybox')
