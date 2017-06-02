@@ -1,3 +1,7 @@
+v1.8.5 2017-06-01
+
+* [[`dabca082b2`](https://github.com/TooTallNate/n8-make/commit/dabca082b2)] - redirect stderr to stdout for stat version (Nathan Rajlich)
+
 v1.8.4 2017-06-01
 
 * [[`ac8fbb949b`](https://github.com/TooTallNate/n8-make/commit/ac8fbb949b)] - moar debug (Nathan Rajlich)
