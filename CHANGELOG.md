@@ -1,3 +1,7 @@
+v1.8.4 2017-06-01
+
+* [[`ac8fbb949b`](https://github.com/TooTallNate/n8-make/commit/ac8fbb949b)] - moar debug (Nathan Rajlich)
+
 v1.8.3 2017-06-01
 
 * [[`d1e0902e47`](https://github.com/TooTallNate/n8-make/commit/d1e0902e47)] - fix BusyBox `stat` (Nathan Rajlich)
