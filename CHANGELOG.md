@@ -1,3 +1,7 @@
+v1.8.6 2017-12-15
+
+* [[`c2986b1c49`](https://github.com/TooTallNate/n8-make/commit/c2986b1c49)] - update deps (Nathan Rajlich)
+
 v1.8.5 2017-06-01
 
 * [[`dabca082b2`](https://github.com/TooTallNate/n8-make/commit/dabca082b2)] - redirect stderr to stdout for stat version (Nathan Rajlich)
