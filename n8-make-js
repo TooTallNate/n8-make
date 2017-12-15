@@ -4,7 +4,7 @@ INPUT=$1; shift
 OUTPUT=$1; shift
 
 ARGS=
-PRESETS=es2015
+PRESETS=env
 PLUGINS=transform-runtime,syntax-async-functions,transform-async-to-generator,transform-dirname-filename,add-module-exports,transform-object-rest-spread
 
 while [ "x$1" != "x" ]
